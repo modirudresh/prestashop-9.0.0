@@ -1,0 +1,176 @@
+@media (min-width:1025px) {
+	.bootstrap .col-md-3.left-column-config{
+		width:20%;
+		margin-bottom: 20px;
+	}
+	.bootstrap .col-md-9.right-column-config{
+		width:80%;
+	}
+}
+#fieldset_style_on_theme_12 .col-lg-9{
+	width:100%;	
+}
+.wrapper_style{
+    margin-bottom: 10px;
+    padding-right: 20px;
+    position: relative;
+    padding-left: 40px;
+}
+.sort_tab{
+    position: absolute;
+    bottom: 0;
+    font-size: 14px;
+    left: 5px;
+    cursor: move;
+    height: 31px;
+    width: 31px;
+    text-align: center;
+    border: 1px solid #C7D6DB;
+    line-height: 27px;
+    background: #F5F8F9;
+    border-radius: 3px;
+
+}
+.delete_style{
+    position: absolute;
+    bottom: 4px;
+    border: none;
+    background: none;
+    font-size: 18px;
+	right:0;
+	cursor:pointer;
+}
+#group_style .ui-state-highlight{
+    height: 31px;
+    margin-bottom: 10px;
+}
+.label_input {
+    border: none;
+    background: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 0;
+    font-size: 14px !important;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 6px;
+    padding-top: 4px;
+}
+.title-reparator {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background: #eeeeee;
+    padding: 12px 0;
+}
+.nrtthemecustomizer .panel:not(#fieldset_general){
+	display:none;	
+}
+.important-button {
+    font-weight: bold;
+    background: #fff;
+    padding: 5px 10px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.35);
+}
+
+.image-select {
+    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-select .image-option {
+    margin-bottom: 10px;
+    max-width: 20%;
+    display: inline-block;
+    padding: 0 5px;
+	flex: 0 0 20%;
+}
+
+#fieldset_header_1 .form-group:not(:last-child) .image-select .image-option, #fieldset_footer_3 .image-select .image-option{
+    max-width: 100%;
+	flex: 0 0 100%;
+}
+
+.image-select .image-option label{
+    border: 1px solid #c8c3c3;
+	font-size:0;
+	cursor:pointer;
+	height: 100%;
+}
+.image-select .image-option h4{
+	border-bottom: 1px solid #c8c3c3;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: normal;
+
+}
+.image-select input:checked + .image-option h4{
+    border-color: #92d097;
+}
+.image-select .image-option label{
+	margin:0;	
+}
+.image-select .image-option img{
+	opacity:0.7;	
+	cursor:pointer;
+	padding:10px;
+}
+.image-select input:checked + .image-option label{
+    -webkit-filter: none;
+    -moz-filter: none;
+    filter: none;
+    border-color: #92d097;
+}
+.image-select input:checked + .image-option img, .image-select .image-option:hover img{
+	opacity:1;	
+}
+.warning-text {
+    color: #da3b44;
+    font-size: 13px;
+}
+
+.success-text {
+    color: #2a803e;
+    font-size: 13px;
+}
+
+/* Tabs */
+#nrtthemecustomizer-tabs {
+	display: block;
+	overflow: hidden;
+	border:1px solid #ddd;
+	border-bottom:none;
+	border-radius:3px;
+	margin-bottom: 20px;
+}
+
+#nrtthemecustomizer-tabs .tab {
+    cursor: pointer;
+	margin-bottom:0;
+	border:none;
+	border-bottom:1px solid #ddd;
+	line-height:1.42857;
+	padding:10px 15px;
+	font-size: 1.1em;
+	font-family: "Ubuntu Condensed",Helvetica,Arial,sans-serif;
+	text-transform: uppercase;
+	font-weight: 300;
+	border-radius:0;
+}
+#nrtthemecustomizer-tabs .tab:last-child{
+	border-right:none !important;	
+}
+#nrtthemecustomizer-tabs .tab.active {
+    background: #00aff0;
+    border-color: #00aff0;
+    color: #ffffff;
+}
+
+/* Form related */
+#custom_css,
+#custom_js {
+    min-height: 200px!important;
+}

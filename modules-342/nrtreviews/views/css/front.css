@@ -1,0 +1,312 @@
+#modal_reviews .modal-dialog {
+	max-width: 500px;
+}
+
+#modal_reviews .no-account {
+	margin-left: -30px;
+	margin-right: -30px;
+}
+
+@media (max-width: 1024px) {
+	#modal_reviews .no-account {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
+}
+
+@media (max-width: 767px) {
+	#modal_reviews .no-account {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+}
+
+#modal_reviews h3{
+    font-size: 2.6rem;
+    color: #444;
+}
+
+.reviews_note {
+	font-size: 0;
+}
+
+.star_content {
+	font-size: 0;
+}
+
+.star_content .star {
+	font-size: 0;
+    margin-right: 2px;
+    position: relative;
+	display: inline-block;
+}
+
+.star_content .star > .star.star_on {
+    position: absolute;
+    overflow: hidden;
+	left: 0;
+	bottom: 0;
+	top: 0;
+}
+
+.star_content .star:last-child {
+    margin-right: 0;
+}
+
+.star_content .star::after {
+    content: "\f005";
+    color: #d4d4d4;
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+	font-size: 16px;
+    line-height: 1;
+	display: block;
+}
+
+.star_content .star.star_on::after {
+    content: "\f005";
+    color: #f2b827;
+}
+
+#reviews_form .star_content label:hover ~ label > .star::after {
+    color: #d4d4d4;
+	font-weight: 400;
+}
+
+#reviews_form .star_content:not(:hover) input[name='rating']:checked + label ~ label > .star::after {
+    color: #d4d4d4;
+	font-weight: 400;
+}
+
+#reviews_form .star_content .star {
+    cursor: pointer;
+}
+
+#reviews_form .star_content .star {
+    margin-right: 5px;
+}
+
+#reviews_form .star_content .star::after {
+    font-size: 22px;
+    display: inline-block;
+    text-align: center;
+    transition: all 0.3s ease-in-out 0s;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -ms-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+}
+
+#reviews_form .star_content label:last-child .star {
+    margin-right: 0;
+}
+
+#reviews_form .label {
+    font-weight: 400;
+    margin-bottom: 0;
+	margin-right: 10px;
+    vertical-align: middle;
+}
+
+#reviews_form .star_content {
+    font-size: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#reviews_form .star-label{
+	margin: 0;
+}
+
+.product-rating{
+	font-size: 0;
+	margin-bottom: 15px;
+}
+
+.product-rating .reviews_note {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 10px;
+}
+
+.product-rating a {
+    color: var(--color-body);
+	display: inline-block;
+	font-size: var(--font-size-body);
+	line-height: 1;
+	margin-bottom: 5px;
+}
+
+.product-rating a:hover{
+	text-decoration: underline;
+}
+
+.product-rating a.goto-product-review-tab:not(:last-child) {
+    padding-right: 10px;
+    border-right: 1px solid;
+	margin-right: 10px;
+}
+
+.reviews-top .reviews_note .label {
+    margin-right: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+	font-size: 1.6rem;
+}
+
+.reviews-top .reviews_note .star_content .star::after {
+    font-size: 2rem;
+}
+
+.reviews-top .reviews_note {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.item-review-top {
+    margin-left: -8px;
+    margin-right: -8px;
+    font-size: 0;
+    margin-bottom: 10px;
+}
+
+.item-review-top .star_content {
+	margin-bottom: 3px;
+	margin-left: 8px;
+	margin-right: 8px;
+    display: inline-block;
+}
+
+.item-review-top .by-author {
+    color: #888;
+    display: inline-block;
+	margin-bottom: 3px;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+
+.item-review-top .by-author span {
+    font-size: var(--font-size-body);
+	display: inline-block;
+}
+
+.item-review-top .by-author .date {
+    border-left: 1px solid #ccc;
+    font-style: normal;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+
+.reviews-list .comment-details h4 {
+    color: var(--color-title);
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.reviews-list .comment-details > p {
+    margin-bottom: 25px;
+}
+
+.reviews-list .comment-details .img-group {
+	margin: 0 -5px;
+	font-size: 0;
+	margin-bottom: 25px;
+}
+
+.reviews-list .comment-details .img-group a{
+	padding: 5px;
+	display: inline-block;
+	cursor: zoom-in;
+	position: relative;
+	width: 25%;
+}
+
+.use-fulness-btn {
+	margin: -5px;
+	font-size: 0;
+	margin-bottom: 30px;
+}
+
+.use-fulness-btn > span{
+    font-size: var(--font-size-body);
+    color: var(--color-body);
+    margin: 5px;
+}
+
+.use-fulness-btn button {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 3px;
+    text-transform: capitalize;
+    padding: 3px 10px;
+    background: #f1f1f1;
+    border: none;
+    transition: all 0.15s ease-in-out 0s;
+    -moz-transition: all 0.15s ease-in-out 0s;
+    -ms-transition: all 0.15s ease-in-out 0s;
+    -o-transition: all 0.15s ease-in-out 0s;
+    -webkit-transition: all 0.15s ease-in-out 0s;
+}
+
+.use-fulness-btn button i {
+    font-size: 18px;
+    vertical-align: -2px;
+}
+
+.use-fulness-btn button:not(.active_color) {
+	color: #444444;
+}
+
+#my_reviews h3 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#my_reviews .align_center {
+	margin-bottom: 30px;
+}
+
+#reviews_form h3 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.star_content_avg {
+    font-family: 'Line Awesome Free';
+	font-weight: 900;
+	white-space: nowrap;
+	letter-spacing: 2px;
+	font-size: 16px;
+	color: #f2b827;
+	position: relative;
+	display: inline-block;
+}
+
+.star_content_avg::before {
+	content: "\f005" "\f005" "\f005" "\f005" "\f005";
+	color: #d4d4d4;
+}
+
+.star_content_avg span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%;
+}
+
+.star_content_avg span::before {
+    content: "\f005" "\f005" "\f005" "\f005" "\f005";
+    position: absolute;
+    top: 0;
+    left: 0;
+}

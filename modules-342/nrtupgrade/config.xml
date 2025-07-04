@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>nrtupgrade</name>
+    <displayName><![CDATA[Axon - 1 Click Upgrade Akira Theme]]></displayName>
+    <version><![CDATA[1.1.1]]></version>
+    <description><![CDATA[Provides an automated method to upgrade your shop to the latest version of Akira Theme.]]></description>
+    <author><![CDATA[AxonVIZ]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>

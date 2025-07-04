@@ -1,0 +1,22 @@
+#curr_product_name{list-style: none;}
+.mce-i-template:before { font-family: Material Icons; content: "flash_on"; color: #FF8230;}
+.fontello_list{
+  list-style: none;
+}
+.fontello_list li{
+  float: left;
+  min-width: 65px;
+}
+.fa {
+	font-size:20px !important;	
+}
+ul.item_list_in_td{padding:0;}
+ul.item_list_in_td li{list-style:none;}
+
+.wrapper_input_icon{
+	display: none;
+}
+
+.fontello_list input:checked + label + .wrapper_input_icon {
+    display: block;
+}

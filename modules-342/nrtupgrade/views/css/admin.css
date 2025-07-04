@@ -1,0 +1,6 @@
+.upgradestepNrt { margin-right: 5px;padding-left: 10px; padding-right: 5px;}
+.processingNrt {border:2px outset gray;margin-top:1px;overflow: auto;}
+#infoNrtStep {height:100px;}
+#infoNrtError {height:100px;}
+#quickNrtInfo {height:200px;}
+.nextNrtStep {font-weight: bold;}

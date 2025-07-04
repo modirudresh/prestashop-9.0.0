@@ -1,0 +1,23 @@
+# php
+/config_*.xml
+/vendor/
+/.php_cs.cache
+
+# vim
+
+*.swp
+*.swo
+*.swn
+
+# npm
+
+node_modules
+
+# mac
+.DS_Store
+
+## UI Tests
+/tests/UI/.env
+/tests/UI/node_modules/
+/tests/UI/report.json
+/tests/UI/reports/

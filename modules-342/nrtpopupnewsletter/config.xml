@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>nrtpopupnewsletter</name>
+    <displayName><![CDATA[Axon - Popup Newsletter]]></displayName>
+    <version><![CDATA[2.1.6]]></version>
+    <description><![CDATA[Shows popup newsletter window with your message]]></description>
+    <author><![CDATA[AxonVIZ]]></author>
+    <tab><![CDATA[front_office_features]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>1</need_instance>
+</module>
