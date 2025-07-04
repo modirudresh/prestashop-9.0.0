@@ -1,7 +1,0 @@
-name: Symfony Console
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
