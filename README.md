@@ -14,9 +14,7 @@
 PrestaShop is an Open Source e-commerce web application, committed to providing the best shopping cart experience for merchants and customers. It is written in PHP, highly customizable, supports all major payment services, is translated into many languages, localized for many countries, and has a fully responsive design for both front and back office.  
 [See all the available features][available-features].
 
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/2137763/201319765-9157f702-4970-4258-8390-1187de2ad587.png" alt="PrestaShop 9.0 back office"/>
-</p>
+<p align="center"> <img src="https://user-images.githubusercontent.com/2137763/201319765-9157f702-4970-4258-8390-1187de2ad587.png" alt="PrestaShop 9.0 back office" width="600"/> </p>
 
 This repository contains the source code of PrestaShop intended for development and preview only. To download the latest stable public version (currently PrestaShop 8.1), please visit [the releases page][download].
 
