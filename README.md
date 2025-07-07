@@ -15,7 +15,7 @@ PrestaShop is an Open Source e-commerce web application, committed to providing 
 [See all the available features][available-features].
 
 <p align="center">
-  <img src="https://nightly.prestashop-project.org/img/backoffice-screenshot.png" alt="PrestaShop 9.0 Back Office" width="600" />
+  <img src="https://user-images.githubusercontent.com/2137763/201319765-9157f702-4970-4258-8390-1187de2ad587.png" alt="PrestaShop 8.0 back office"/>
 </p>
 
 
