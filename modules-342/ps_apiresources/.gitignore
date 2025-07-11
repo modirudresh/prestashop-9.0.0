@@ -1,5 +1,0 @@
-/vendor
-.php-cs-fixer.cache
-.phpunit.result.cache
-tests/local-parameters/parameters.php
-tests/local-parameters/parameters.yml

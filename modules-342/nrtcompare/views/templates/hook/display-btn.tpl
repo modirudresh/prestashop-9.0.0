@@ -1,1 +1,0 @@
-<a href="{url entity='module' name='nrtcompare' controller='comparator'}" class="btn-action btn-compare js-compare" title="{l s='Add to Compare' mod='nrtcompare'}">{l s='Add to Compare' mod='nrtcompare'}</a>

@@ -1,1 +1,0 @@
-<a class="btn-action btn-wishlist js-wishlist" href="{url entity='module' name='nrtwishlist' controller='view'}" title="{l s='Add to Wishlist' mod='nrtwishlist'}">{l s='Add to Wishlist' mod='nrtwishlist'}</a>
