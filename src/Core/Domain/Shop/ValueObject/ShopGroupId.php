@@ -44,6 +44,7 @@ class ShopGroupId
      */
     public function __construct(int $shopGroupId)
     {
+
         $this->assertIsGreaterThanZero($shopGroupId);
 
         $this->shopGroupId = $shopGroupId;
