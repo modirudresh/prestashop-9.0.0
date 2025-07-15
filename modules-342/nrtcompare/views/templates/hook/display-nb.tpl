@@ -1,1 +1,0 @@
-<a class="btn-canvas btn-canvas-compare sb-item" href="{url entity='module' name='nrtcompare' controller='comparator'}" title="{l s='Compare' mod='nrtcompare'}">{if isset($icon) && $icon}{$icon nofilter}{else}<i class="las la-random"></i>{/if}<span class="btn-canvas-text">{l s='Compare' mod='nrtcompare'}</span><span class="js-compare-nb compare-nbr">0</span></a>

@@ -235,6 +235,28 @@ class CartControllerCore extends FrontController
 
     protected function updateCart(): void
     {
+        // Remove all products if requested
+        if (Tools::isSubmit('delete_all') && strcasecmp(Tools::getToken(false), Tools::getValue('token')) == 0) {
+            $products = $this->context->cart->getProducts();
+            foreach ($products as $product) {
+                $this->context->cart->deleteProduct(
+                    $product['id_product'],
+                    $product['id_product_attribute'],
+                    isset($product['id_customization']) ? $product['id_customization'] : 0,
+                    isset($product['id_address_delivery']) ? $product['id_address_delivery'] : 0
+                );
+            }
+            $this->context->cart->update();
+            if (!Cart::getNbProducts((int) $this->context->cart->id)) {
+                $this->context->cart->setDeliveryOption(null);
+                $this->context->cart->gift = 0;
+                $this->context->cart->gift_message = '';
+                $this->context->cart->update();
+            }
+            // Optionally, add a confirmation message here
+            return;
+        }
+
         // Update the cart ONLY if it's not a bot, in order to avoid ghost carts
         if (!Connection::isBot()
             && !$this->errors
