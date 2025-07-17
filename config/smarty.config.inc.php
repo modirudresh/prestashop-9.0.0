@@ -247,3 +247,6 @@ function smarty_endWithoutReference($arrayValue)
     return end($arrayValue);
 }
 
+$smarty->registerPlugin('modifier', 'ceil', 'ceil');
+$smarty->registerPlugin('modifier', 'Ceil', 'ceil');
+

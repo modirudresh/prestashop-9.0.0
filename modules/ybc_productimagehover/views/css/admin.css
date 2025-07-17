@@ -1,0 +1,7 @@
+select#transition-effect, select#those-pages {
+    max-width: 350px;
+}
+p.checkbox label {
+    text-align: left;
+    margin-bottom: 5px;
+}

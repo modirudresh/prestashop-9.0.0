@@ -151,8 +151,10 @@ class SpecificPriceFormatterCore
                 $discountPrice = $initialPrice - $initialPrice * $this->specificPrice['reduction'];
                 if ($this->displayDiscountPrice) {
                     if ($this->specificPrice['reduction_tax'] == 0) {
+                        $this->specificPrice['reduction_with_tax'] = $this->specificPrice['reduction'];
                         $this->specificPrice['discount'] = $priceFormatter->format($initialPrice - ($initialPrice * $this->specificPrice['reduction_with_tax']));
                     } else {
+                        $this->specificPrice['reduction_with_tax'] = $this->specificPrice['reduction'];
                         $this->specificPrice['discount'] = $priceFormatter->format($initialPrice - ($initialPrice * $this->specificPrice['reduction']));
                     }
                 } else {

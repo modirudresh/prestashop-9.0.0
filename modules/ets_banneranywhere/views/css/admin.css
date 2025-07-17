@@ -1,0 +1,253 @@
+.form-group div.checkbox{
+    float:left;
+    width:50%;
+}
+.bootstrap .col-lg-8 {
+  width: 74.667%;
+}
+input.short-code {
+    border: 1px dashed #e84545 !important;
+    cursor: pointer !important;
+    width: 215px !important;
+    background: #fff7f7!important;
+    color: #e84545!important;
+    height: auto!important;
+    max-width: 100%;
+}
+.block-short-code {
+  border: 3px solid #beeaf3;
+  padding: 20px;
+}
+html body:not(.adminstockmanagement):not(.adminpsthemecustoconfiguration):not(.adminpsthemecustoadvanced):not(.adminmodulesmanage):not(.adminaccess) .bootstrap [class*=col-] {
+    padding-right: 15px;
+    padding-left: 15px;
+    flex-wrap: wrap;
+}
+body .bootstrap .form-horizontal .form-group {
+    margin-left: -15px;
+    margin-right: -15px;
+    flex-wrap: wrap;
+}
+html body:not(.adminstockmanagement):not(.adminpsthemecustoconfiguration):not(.adminpsthemecustoadvanced):not(.adminmodulesmanage):not(.adminaccess) .bootstrap .row {
+    margin-left: -15px;
+    margin-right: -15px;
+    flex-wrap: wrap;
+}
+.form-group.block-short-code label.control-label {
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding-top: 0;
+}
+.bootstrap .table > thead > tr > td.active, .bootstrap .table > thead > tr > th.active, .bootstrap .table > thead > tr.active > td, .bootstrap .table > thead > tr.active > th, .bootstrap .table > tbody > tr > td.active, .bootstrap .table > tbody > tr > th.active, .bootstrap .table > tbody > tr.active > td, .bootstrap .table > tbody > tr.active > th, .bootstrap .table > tfoot > tr > td.active, .bootstrap .table > tfoot > tr > th.active, .bootstrap .table > tfoot > tr.active > td, .bootstrap .table > tfoot > tr.active > th {
+  background: none;
+}
+#list-banner .image  img{
+    width:60px;
+}
+.uploaded_img_wrapper {
+    padding: 10px 0 0;
+}
+input#image_url_1.error {
+    box-shadow: 0 0 0px 1px #ff5858;
+    color: #ff5858;
+}
+button.not_click_because_error {
+    pointer-events: none!important;
+}
+.form-group .help-block {
+    width: 100%;
+    margin: 0;
+    clear: both;
+}
+.limit.results {
+    display: inline-flex;
+    align-items: center;
+    float: right;
+    margin-top: 2px;
+    margin-bottom: -5px;
+}
+.limit.results select#paginator_banner_select_limit {
+    height: auto;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    margin-left: 8px;
+}
+
+.results {
+    display: inline-block;
+    margin-top: 10px;
+}
+a.btn.btn-default.add_new_link {
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+a.btn.btn-default.add_new_link i.ets_icon {
+    height: 14px;
+    margin-right: 4px;
+    color: inherit!important;
+}
+svg {
+    fill: currentColor!important;
+}
+a.btn.btn-default.add_new_link:hover {
+    color: #fff;
+    fill: #fff;
+}
+.block-short-code {
+    border: 1px solid #00b8df;
+    border-left-width: 4px;
+    padding: 15px;
+    border-radius: 2px;
+    color: #00b8df;
+    padding-left: 60px;
+}
+.block-short-code.alert_info span.alert_icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    fill: #00b8df;
+    color: #00b8df;
+}
+.block-short-code.alert_info input.short-code {
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+.block-short-code.alert_info label.control-label {
+    padding-right: 10px;
+    color: #00b8df;
+    font-weight: normal!important;
+    font-size: inherit;
+}
+#ets_baw_banner_form .form-group > .col-lg-3,#ets_baw_banner_form .form-group > .col-lg-4 {
+    width: 25%;
+}
+span.ets_bn_tooltip {
+    background: #666;
+    color: #fff;
+    position: relative;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    text-align: center;
+    line-height: 17px;
+    border-radius: 50%;
+}
+.title_box span.ets_bn_tooltip {
+    margin-left: 4px;
+}
+.ets_bn_tooltip span.toltip {
+    position: absolute;
+    bottom: 100%;
+    background: #666;
+    padding: 6px 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    white-space: normal;
+    width: 300px;
+    display: none;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    border-radius: 3px;
+}
+.ets_bn_tooltip:hover span.toltip{
+    display: block;
+}
+.ets_bn_tooltip span.toltip:before {
+    content: "";
+    position: absolute;
+    border-top: 4px solid #666;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+#ets_baw_banner_form .form-wrapper {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+}
+.block-short-code.alert_info {
+    width: 78%;
+}
+.bootstrap .table tr.filter.row_hover th.active {
+    background: #ecf6fb!important;
+}
+.bootstrap .table tbody>tr:hover>td {
+    background-color: #f4f8fb!important;
+}
+.list-banner td.position ul {
+    padding-left: 15px;
+}
+.list-banner .id_ets_baw_banner {
+    width: 60px;
+    text-align: center;
+}
+select, a.btn, button {
+    cursor: pointer;
+}
+span.ets-baw-text-copy {
+    position: absolute;
+    background: #00b500;
+    color: #fff;
+    padding: 1px 4px;
+    left: 100%;
+    top: 50%;
+    margin-top: -10px;
+    line-height: 20px;
+    border-radius: 2px;
+    z-index: 1;
+    margin-left: -30px;
+    -webkit-animation-name: copirun;
+    -webkit-animation-duration: 1.5s;
+    animation-name: copirun;
+    animation-duration: 1.5s;
+}
+.copied_text {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+@keyframes copirun {
+    0% {
+        opacity: 0;
+        margin-left: 0;
+        visibility: visible;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        margin-left: -30px;
+        visibility: visible;
+    }
+}
+
+@-webkit-keyframes copirun {
+
+    0% {
+        opacity: 0;
+        right: -30px;
+        visibility: visible;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        right: 10px;
+        visibility: visible;
+    }
+}
+.list-banner th.active, .list-banner td.active {
+    width: 100px;
+    text-align: center;
+}

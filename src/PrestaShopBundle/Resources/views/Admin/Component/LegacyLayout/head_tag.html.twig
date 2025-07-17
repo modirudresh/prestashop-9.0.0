@@ -74,7 +74,7 @@
 list of assets which is why it must be executed before the loop, its content is temporarily stored to be
 then correctly appended in the output (after the loops). This little hack is necessary to avoid a breaking change
 and keep backward compatibility for this use case even if it's not very clean. #}
-{% set displayBackOfficeHeaderRendered = renderhook('displayBackOfficeHeader') %}
+{# {% set displayBackOfficeHeaderRendered = renderhook('displayBackOfficeHeader') %} #}
 
 {% for css_uri, css_media in this.cssFiles %}
   <link href="{{ css_uri }}" rel="stylesheet" type="text/css" media="{{ css_media }}"/>
@@ -93,4 +93,4 @@ and keep backward compatibility for this use case even if it's not very clean. #
 {% endfor %}
 
 {# After some CSS/JS files inclusion (that can be added in 'displayBackOfficeHeader' hook), we need to display the html compiled that are returned for this hook. #}
-{{ displayBackOfficeHeaderRendered|raw }}
+{# {{ displayBackOfficeHeaderRendered|raw }} #}
