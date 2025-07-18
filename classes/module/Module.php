@@ -2083,18 +2083,33 @@ abstract class ModuleCore implements ModuleInterface
      *
      * @return string
      */
-    public function displayConfirmation($string)
-    {
-        $output = '
-        <div class="bootstrap">
-        <div class="module_confirmation conf confirm alert alert-success">
+   public function displayConfirmation($string)
+{
+    $output = '
+    <div class="bootstrap">
+        <div class="module_confirmation conf confirm alert alert-success" id="custom-confirmation-message">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             ' . $string . '
         </div>
-        </div>';
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(function () {
+                var el = document.getElementById("custom-confirmation-message");
+                if (el) {
+                    el.style.transition = "opacity 0.5s ease";
+                    el.style.opacity = 0;
+                    setTimeout(function () {
+                        el.remove();
+                    }, 500); // wait for fade-out to complete
+                }
+            }, 8000); // Hide after 8 seconds
+        });
+    </script>';
 
-        return $output;
-    }
+    return $output;
+}
+
 
     /**
      * Helper displaying information message(s).

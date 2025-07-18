@@ -60,12 +60,13 @@ class ModuleController extends ModuleAbstractController
 
     public const MAX_MODULES_DISPLAYED = 6;
 
-    public function __construct(
-        private readonly Environment $twig,
-        private readonly ValidatorInterface $validator,
-        private readonly EntityManagerInterface $entityManager,
-    ) {
-    }
+  public function __construct(
+    private readonly Environment $twig,
+    private readonly ValidatorInterface $validator,
+    private readonly EntityManagerInterface $entityManager
+) {
+}
+
 
     /**
      * Controller responsible for displaying "Catalog Module Grid" section of Module management pages with ajax.
@@ -119,10 +120,11 @@ class ModuleController extends ModuleAbstractController
      * @return Response
      */
     #[AdminSecurity("is_granted('read', 'ADMINMODULESSF_') || is_granted('create', 'ADMINMODULESSF_') || is_granted('update', 'ADMINMODULESSF_') || is_granted('delete', 'ADMINMODULESSF_')")]
-    public function configureModuleAction(
-        string $module_name,
-        LegacyContext $legacyContext,
-    ): Response {
+  public function configureModuleAction(
+    string $module_name,
+    LegacyContext $legacyContext
+): Response {
+
         // Get accessed module object
         /** @var ModuleAdapter $module */
         $module = $this->getModuleRepository()->getModule($module_name);

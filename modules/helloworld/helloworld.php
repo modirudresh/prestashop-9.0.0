@@ -10,7 +10,7 @@ class Helloworld extends Module
         $this->name = 'helloworld';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author = 'Your Name';
+        $this->author = 'Rudresh';
         $this->need_instance = 0;
 
         parent::__construct();
