@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>custompromo</name>
-    <displayName><![CDATA[Custom Promo]]></displayName>
+    <name>giftwrapping</name>
+    <displayName><![CDATA[Gift Wrapping]]></displayName>
     <version><![CDATA[1.0.0]]></version>
-    <description><![CDATA[Displays a custom promotional message on the homepage.]]></description>
+    <description><![CDATA[Allows customers to add gift wrapping to their orders.]]></description>
     <author><![CDATA[Your Name]]></author>
     <tab><![CDATA[front_office_features]]></tab>
     <is_configurable>1</is_configurable>

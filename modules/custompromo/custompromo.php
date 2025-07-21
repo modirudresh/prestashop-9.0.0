@@ -1,4 +1,5 @@
 <?php
+
 if ( !defined( '_PS_VERSION_' ) ) {
     exit;
 }
@@ -10,7 +11,7 @@ class Custompromo extends Module {
         $this->name = 'custompromo';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author = 'Rudresh';
+        $this->author = 'Your Name';
         $this->need_instance = 0;
         $this->bootstrap = true;
 
@@ -59,7 +60,7 @@ class Custompromo extends Module {
             if ( empty( $this->form_errors ) ) {
                 Configuration::updateValue( 'CUSTOM_PROMO_MESSAGE', $promo_message );
                 Configuration::updateValue( 'CUSTOM_PROMO_DESCRIPTION', $promo_description, true );
-                
+
                 Configuration::updateValue( 'CUSTOM_PROMO_ENABLED', ( bool )$promo_enabled );
 
                 $output .= $this->displayConfirmation( $this->l( 'Settings updated successfully.' ) );
@@ -102,7 +103,7 @@ class Custompromo extends Module {
                     'html_content' => '<hr>',
                     'height' => '1px',
                 ],
-                
+
                 'input' => [
                     [
                         'type' => 'text',
