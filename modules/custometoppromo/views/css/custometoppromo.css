@@ -1,0 +1,100 @@
+/* .top-promo {
+    width: 100%;
+    margin: 0;
+    padding: 7px 0 10px;
+    background: #05213f;
+    position: relative;
+}
+
+.top-promo .promo-content {
+    padding: 25px 0 15px;
+    color: #fff;
+}
+
+.top-promo .promo-content h3 {
+    margin-top: -10px;
+    text-transform: uppercase;
+    font-weight: 100;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.top-promo .promo-content h3 strong {
+    color: #f7f7f7;
+    font-size: 1.45em;
+}
+
+.top-promo .promo-content h5 {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.53em;
+}
+
+.top-promo .promo-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    max-width: 300px;
+}
+
+.top-promo .button {
+    float: right;
+    font-size: 11px;
+    padding: 0.5em 1.1em;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #ccc;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.top-promo .message p {
+    margin: 0;
+    text-align: center;
+    font-size: 12px;
+}
+
+.top-promo .message a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.top-promo .message a:hover {
+    color: #f7f7f7;
+}
+
+.top-promo .open-handle {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    margin-left: -16.5px;
+    width: 33px;
+    height: 35px;
+    border-radius: 50%;
+    background: #05213f;
+    z-index: 0;
+}
+
+.top-promo .open-handle::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    margin-left: -7px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.top-promo.open .open-handle::after {
+    border-top: none;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.3);
+}
+
+.top-promo .open-handle:hover::after {
+    border-top: 5px solid rgba(255, 255, 255, 0.7);
+}
+
+.top-promo.open .open-handle:hover::after {
+    border-top: none;
+    border-bottom: 5px solid rgba(255, 255, 255, 0.7);
+} */

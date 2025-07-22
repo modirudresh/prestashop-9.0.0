@@ -17,7 +17,7 @@ class Custompromo extends Module {
 
         parent::__construct();
 
-        $this->displayName = $this->l( 'Custom Promo' );
+        $this->displayName = $this->l( 'Custome Promo' );
         $this->description = $this->l( 'Displays a custom promotional message on the homepage.' );
         $this->ps_versions_compliancy = [
             'min' => '1.7.0.0',

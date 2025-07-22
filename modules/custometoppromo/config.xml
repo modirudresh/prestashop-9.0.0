@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>custometoppromo</name>
+    <displayName><![CDATA[Custom Top Promo]]></displayName>
+    <description><![CDATA[This module displays a custom promotional message at the top of the homepage.]]></description>
+    <author><![CDATA[Your Name]]></author>
+    <version>1.0.0</version>
+    <tab>front_office_features</tab>
+    <need_instance>0</need_instance>
+    <is_configurable>1</is_configurable>
+    <ps_versions_compliancy>
+        <min><![CDATA[1.7.0]]></min>
+    </ps_versions_compliancy>
+    <need_instance>0</need_instance>
+</module>

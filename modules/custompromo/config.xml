@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
     <name>custompromo</name>
-    <displayName><![CDATA[Custom Promo]]></displayName>
+    <displayName><![CDATA[Custome Promo]]></displayName>
     <version><![CDATA[1.0.0]]></version>
     <description><![CDATA[Displays a custom promotional message on the homepage.]]></description>
     <author><![CDATA[Your Name]]></author>

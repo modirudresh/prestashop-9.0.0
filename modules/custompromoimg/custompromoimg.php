@@ -10,14 +10,14 @@ class CustomPromoImg extends Module {
     public function __construct() {
         $this->name = 'custompromoimg';
         $this->tab = 'front_office_features';
-        $this->version = '1.1.0';
+        $this->version = '1.0.0';
         $this->author = 'Your Name';
         $this->need_instance = 0;
         $this->bootstrap = true;
 
         parent::__construct();
 
-        $this->displayName = $this->l( 'Promo with Image' );
+        $this->displayName = $this->l( 'Custome Promo with Image' );
         $this->description = $this->l( 'Displays a custom promotional image on the homepage.' );
         $this->ps_versions_compliancy = [
             'min' => '1.7.0.0',

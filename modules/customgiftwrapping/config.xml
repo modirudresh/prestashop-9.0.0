@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <module>
-    <name>custompromoimg</name>
-    <displayName><![CDATA[Custome Promo with Image]]></displayName>
+    <name>customgiftwrapping</name>
+    <displayName><![CDATA[Custom Gift Wrapping]]></displayName>
     <version><![CDATA[1.0.0]]></version>
-    <description><![CDATA[Displays a custom promotional image on the homepage.]]></description>
+    <description><![CDATA[Allow customers to add gift wrapping to their cart.]]></description>
     <author><![CDATA[Your Name]]></author>
     <tab><![CDATA[front_office_features]]></tab>
     <is_configurable>1</is_configurable>

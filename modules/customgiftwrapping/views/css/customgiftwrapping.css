@@ -1,0 +1,110 @@
+/* General form styles */
+.customgiftwrapping-form {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.customgiftwrapping-form h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.gift-wrap-form button:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Options layout */
+.customgiftwrapping-options {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+/* Each wrap option */
+.gift-wrap-option {
+    position: relative;
+    width: 80px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.gift-wrap-option img {
+    border: 2px solid transparent;
+    border-radius: 6px;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    height: 60px;
+    width: auto;
+}
+
+/* Hover effect */
+.gift-wrap-option img:hover {
+    transform: scale(1.05);
+    border-color: #007bff;
+}
+
+/* Selected state */
+.gift-wrap-radio:checked+label img,
+.gift-wrap-option input[type="radio"]:checked+label img {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styles */
+.customgiftwrapping-buttons {
+    margin-top: 10px;
+}
+
+.customgiftwrapping-buttons button {
+    min-width: 100px;
+}
+
+/* Selected gift summary */
+.custom-gift-wrap-summary {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .customgiftwrapping-form {
+        padding: 15px !important;
+    }
+
+    .gift-wrap-option {
+        width: 70px;
+    }
+
+    .customgiftwrapping-options img {
+        max-height: 80px;
+    }
+
+    .customgiftwrapping-buttons button,
+    .gift-wrap-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .customgiftwrapping-options {
+        flex-wrap: nowrap;
+    }
+
+    .gift-wrap-option {
+        width: 60px;
+    }
+
+    .customgiftwrapping-buttons button,
+    .gift-wrap-form button {
+        width: 100%;
+    }
+}
