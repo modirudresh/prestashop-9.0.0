@@ -157,6 +157,15 @@ class CustomPromoImg extends Module {
                         'image' => $promo_image ? $promo_image : false,
                     ],
                     [
+                        'type'    => 'html',
+                        'label' => $this->l( 'Custom Promo Image preview' ),
+                        'name'    => 'PROMO_IMAGE_PREVIEW',
+                        'content' => $promo_image
+                        ? '<img src="' . $promo_image . '" alt="Promo Image" style="max-width: 200px;" />'
+                        : '',
+                    ],
+
+                    [
                         'type' => 'textarea',
                         'label' => $this->l( 'Custom Promo Description' ),
                         'name' => 'PROMO_DESCRIPTION',

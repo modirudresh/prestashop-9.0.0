@@ -156,6 +156,7 @@ class Customgiftwrapping extends Module {
                 'label' => $this->l( "Wrapping Image $i" ),
                 'name' => "Wrapper_IMAGE_$i",
                 'accept' => 'image/*',
+                'class' => 'fixed-width-md',
                 'desc' => $desc,
             ];
 
