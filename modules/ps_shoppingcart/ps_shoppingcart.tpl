@@ -28,7 +28,6 @@
       {if $cart.products|count}
         <button id="remove-all-from-cart" type="button" class="btn btn-danger btn-sm" style="width:100%;margin-bottom:10px;">
           <i class="material-icons">&#xE872;</i>
-          {l s='Remove All' d='Shop.Theme.Actions'}
         </button>
       {/if}
       <ul>
@@ -39,15 +38,16 @@
 
       {* REMOVE ALL BUTTON *}
       {if $cart.products|count}
-        <form method="post" action="{$cart_url}" class="remove-all-form" style="margin-top: 1em;">
+        <form method="post" action="{$cart_url}" class="remove-all-form mt-3">
           <input type="hidden" name="delete_all" value="1" />
           <input type="hidden" name="token" value="{$static_token}" />
-          <button type="submit" class="btn btn-danger btn-sm">
-            <i class="material-icons">&#xE872;</i>
-            {l s='Remove All' d='Shop.Theme.Actions'}
+          <button type="submit" class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2 remove-all-btn" title="{l s='Remove all items from cart' d='Shop.Theme.Actions'}">
+            <i class="material-icons">delete_forever</i>
+            <span>{l s='Remove All Items' d='Shop.Theme.Actions'}</span>
           </button>
         </form>
       {/if}
+
 
       <div class="cart-subtotals">
         {foreach from=$cart.subtotals item="subtotal"}

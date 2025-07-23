@@ -47,17 +47,13 @@
               <td>
                 <a href="{{ path('admin_products_edit', {productId: product.id}) }}">
                   {{ product.name }}
-
                   {% if product.attributes %}
                     <br> {{ product.attributes }}
                   {% endif %}
                   <br>
-
                   {% if product.reference %}
-                    {{ 'Ref:'|trans({}, 'Admin.Orderscustomers.Feature') }}
-                    {{ product.reference }}
+                    {{ 'Ref:'|trans({}, 'Admin.Orderscustomers.Feature') }} {{ product.reference }}
                   {% endif %}
-
                   {% if product.reference and product.supplier_reference %}
                     / {{ product.supplier_reference }}
                   {% endif %}
@@ -68,17 +64,14 @@
               <td>{{ product.stock_quantity }}</td>
               <td>{{ product.total_price_formatted }}</td>
             </tr>
-
             <tr>
               <td colspan="2">
                 {% for customizationField in product.customization.fields %}
                   <div class="row">
                     <div class="col-6 text-right">
-                      {% if customizationField.name %}
-                        <strong>{{ customizationField.name }}</strong>
-                      {% else %}
-                        <strong>{{ 'Text #'|trans({}, 'Admin.Orderscustomers.Feature') }}</strong>
-                      {% endif %}
+                      <strong>
+                        {{ customizationField.name ?: ('Text #'|trans({}, 'Admin.Orderscustomers.Feature')) }}
+                      </strong>
                     </div>
                     <div class="col-6">
                       {% if customizationField.type == 'customizable_file' %}
@@ -90,31 +83,21 @@
                   </div>
                 {% endfor %}
               </td>
-
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td colspan="4"></td>
             </tr>
-          {% endif %}
-
-          {% if product.customization is empty %}
+          {% else %}
             <tr>
               <td>{{ product.image|raw }}</td>
               <td>
                 <a href="{{ path('admin_products_edit', {productId: product.id}) }}">
                   {{ product.name }}
-
                   {% if product.attributes %}
                     <br> {{ product.attributes }}
                   {% endif %}
                   <br>
-
                   {% if product.reference %}
-                    {{ 'Ref:'|trans({}, 'Admin.Orderscustomers.Feature') }}
-                    {{ product.reference }}
+                    {{ 'Ref:'|trans({}, 'Admin.Orderscustomers.Feature') }} {{ product.reference }}
                   {% endif %}
-
                   {% if product.reference and product.supplier_reference %}
                     / {{ product.supplier_reference }}
                   {% endif %}
@@ -128,35 +111,59 @@
           {% endif %}
         {% endfor %}
 
-        <tr>
-          <td colspan="5">{{ 'Total cost of products:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
-          <td class="text-right">{{ cartView.cartSummary.total_products_formatted }}</td>
-        </tr>
+       <tr>
+  <td colspan="5">{{ 'Total cost of products:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
+  <td class="text-right">{{ cartView.cartSummary.total_products_formatted }}</td>
+</tr>
 
-        {% if cartView.cartSummary.total_discounts %}
-          <tr>
-            <td colspan="5">{{ 'Total value of vouchers:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
-            <td class="text-right">{{ cartView.cartSummary.total_discounts_formatted }}</td>
-          </tr>
-        {% endif %}
+{% if cartView.cartSummary.total_discounts %}
+  <tr>
+    <td colspan="5">{{ 'Total value of vouchers:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
+    <td class="text-right">- {{ cartView.cartSummary.total_discounts_formatted }}</td>
+  </tr>
+{% endif %}
 
-        {% if cartView.cartSummary.total_wrapping %}
-          <tr>
-            <td colspan="5">{{ 'Total cost of gift wrapping:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
-            <td class="text-right">{{ cartView.cartSummary.total_wrapping_formatted }}</td>
-          </tr>
-        {% endif %}
+{% if cartView.cartSummary.total_shipping %}
+  <tr>
+    <td colspan="5">{{ 'Total shipping costs:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
+    <td class="text-right">{{ cartView.cartSummary.total_shipping_formatted }}</td>
+  </tr>
+{% endif %}
 
-        {% if cartView.cartSummary.total_shipping %}
-          <tr>
-            <td colspan="5">{{ 'Total shipping costs:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
-            <td class="text-right">{{ cartView.cartSummary.total_shipping_formatted }}</td>
-          </tr>
-        {% endif %}
+{# Subtotal = products + shipping - discount #}
+<tr>
+  <td colspan="5">
+    <strong>{{ 'Subtotal (products + shipping - discounts)'|trans({}, 'Admin.Orderscustomers.Feature') }}</strong>
+  </td>
+  <td class="text-right">
+    <strong>
+      {{
+        (cartView.cartSummary.total - cartView.cartSummary.total_wrapping)|number_format(2, '.', ',')
+      }} {{ cartView.cartSummary.currency.iso_code }}
+    </strong>
+  </td>
+</tr>
 
-        <tr>
+{# Gift wrapping #}
+{% if cartView.cartSummary.total_wrapping > 0 %}
+  <tr>
+    <td colspan="5">{{ 'Gift wrapping:'|trans({}, 'Admin.Orderscustomers.Feature') }}</td>
+    <td class="text-right">{{ cartView.cartSummary.total_wrapping_formatted }}</td>
+  </tr>
+{% endif %}
+
+{# Final total = subtotal + gift wrapping #}
+<tr class="bg-success text-white">
+  <td colspan="5">
+    <strong>{{ 'Final Total (Subtotal + Gift wrapping)'|trans({}, 'Admin.Orderscustomers.Feature') }}</strong>
+  </td>
+  <td class="text-right">
+    <strong>{{ cartView.cartSummary.total_formatted }}</strong>
+  </td>
+</tr>
+        <tr class="bg-success text-white">
           <td colspan="5">
-            <strong>{{ 'Total'|trans({}, 'Admin.Global') }}</strong>
+            <strong>{{ 'Final Total (including gift wrap)'|trans({}, 'Admin.Orderscustomers.Feature') }}</strong>
           </td>
           <td class="text-right">
             <strong>{{ cartView.cartSummary.total_formatted }}</strong>
@@ -168,11 +175,11 @@
     {% if cartView.cartSummary.cart_rules is not empty %}
       <table class="table">
         <thead>
-        <tr>
-          <th>{{ 'ID'|trans({}, 'Admin.Global') }}</th>
-          <th>{{ 'Discount name'|trans({}, 'Admin.Orderscustomers.Feature') }}</th>
-          <th class="text-right">{{ 'Value'|trans({}, 'Admin.Global') }}</th>
-        </tr>
+          <tr>
+            <th>{{ 'ID'|trans({}, 'Admin.Global') }}</th>
+            <th>{{ 'Discount name'|trans({}, 'Admin.Orderscustomers.Feature') }}</th>
+            <th class="text-right">{{ 'Value'|trans({}, 'Admin.Global') }}</th>
+          </tr>
         </thead>
         <tbody>
           {% for cartRule in cartView.cartSummary.cart_rules %}

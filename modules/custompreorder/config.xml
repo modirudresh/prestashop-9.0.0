@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+  <name>custompreorder</name>
+  <displayName>Pre-Order</displayName>
+  <version>1.0.0</version>
+  <author>Your Name</author>
+  <tab>front_office_features</tab>
+  <description>Enable customers to pre-order out-of-stock products.</description>
+  <need_instance>0</need_instance>
+</module>

@@ -27,10 +27,10 @@ class Customgiftwrapping extends Module {
         return parent::install()
         && $this->registerHook( 'displayHeader' )
         && $this->registerHook( 'displayShoppingCart' )
-        && $this->registerHook( 'displayShoppingCartFooter' )
-
+        && $this->registerHook( 'actionCartGetOrderTotalBefore' )
         && Configuration::updateValue( 'GIFT_WRAPPING_ENABLED', true )
-        && Configuration::updateValue( 'GIFT_WRAPPING_PRICE' );
+        && Configuration::updateValue( 'GIFT_WRAPPING_PRICE', 3.50 )
+        && Configuration::updateValue( 'PS_GIFT_WRAPPING_PRICE', 0.00 );
     }
 
     public function uninstall() {
@@ -41,14 +41,14 @@ class Customgiftwrapping extends Module {
         try {
             $this->unregisterHook( 'displayHeader' );
             $this->unregisterHook( 'displayShoppingCart' );
-            $this->unregisterHook( 'displayShoppingCartFooter' );
-
+            $this->unregisterHook( 'actionCartGetOrderTotalBefore' );
         } catch ( Exception $e ) {
             PrestaShopLogger::addLog( 'Customgiftwrapping uninstall hook error: ' . $e->getMessage(), 3 );
         }
 
         Configuration::deleteByName( 'GIFT_WRAPPING_ENABLED' );
         Configuration::deleteByName( 'GIFT_WRAPPING_PRICE' );
+        Configuration::deleteByName( 'PS_GIFT_WRAPPING_PRICE' );
 
         return parent::uninstall();
     }
@@ -66,10 +66,9 @@ class Customgiftwrapping extends Module {
             } elseif ( $giftWrappingPrice < 0 ) {
                 $this->form_errors[ 'GIFT_WRAPPING_PRICE' ] = $this->l( 'Gift wrapping price cannot be negative.' );
             } else {
-                $giftWrappingPrice = ( float ) number_format( $giftWrappingPrice, 2 );
+                $giftWrappingPrice = ( float )number_format( $giftWrappingPrice, 2, '.', '' );
             }
 
-            // Check for at least 2 wrapping images ( existing or uploaded )
             $validImageCount = 0;
             for ( $i = 1; $i <= 4; $i++ ) {
                 $inputName = "Wrapper_IMAGE_$i";
@@ -87,12 +86,11 @@ class Customgiftwrapping extends Module {
                 $this->form_errors[ 'WRAPPER_IMAGE' ] = $this->l( 'Please upload at least 2 wrapping images.' );
             }
 
-            // Save config if no validation errors
             if ( empty( $this->form_errors ) ) {
-                Configuration::updateValue( 'GIFT_WRAPPING_ENABLED', ( bool ) Tools::getValue( 'GIFT_WRAPPING_ENABLED' ) );
+                Configuration::updateValue( 'GIFT_WRAPPING_ENABLED', ( bool )Tools::getValue( 'GIFT_WRAPPING_ENABLED' ) );
                 Configuration::updateValue( 'GIFT_WRAPPING_PRICE', $giftWrappingPrice );
+                Configuration::updateValue( 'PS_GIFT_WRAPPING_PRICE', $giftWrappingPrice );
 
-                // Save uploaded images as base64
                 for ( $i = 1; $i <= 4; $i++ ) {
                     $inputName = "Wrapper_IMAGE_$i";
                     if ( isset( $_FILES[ $inputName ] ) && is_uploaded_file( $_FILES[ $inputName ][ 'tmp_name' ] ) ) {
@@ -116,12 +114,11 @@ class Customgiftwrapping extends Module {
         $form->name_controller = $this->name;
         $form->token = Tools::getAdminTokenLite( 'AdminModules' );
         $form->currentIndex = AdminController::$currentIndex . '&configure=' . $this->name;
-        $form->default_form_language = ( int ) Configuration::get( 'PS_LANG_DEFAULT' );
+        $form->default_form_language = ( int )Configuration::get( 'PS_LANG_DEFAULT' );
         $form->allow_employee_form_lang = Configuration::get( 'PS_BO_ALLOW_EMPLOYEE_FORM_LANG' );
         $form->title = $this->displayName;
         $form->submit_action = 'submitGiftWrapping';
         $form->toolbar_scroll = true;
-        $form->show_cancel_button = false;
 
         $fields = [
             [
@@ -158,7 +155,6 @@ class Customgiftwrapping extends Module {
                 'type' => 'file',
                 'label' => $this->l( "Wrapping Image $i" ),
                 'name' => "Wrapper_IMAGE_$i",
-                'class' => 'form-control col-md-6 flex-row',
                 'accept' => 'image/*',
                 'desc' => $desc,
             ];
@@ -166,7 +162,6 @@ class Customgiftwrapping extends Module {
             if ( $base64Image ) {
                 $fields[] = [
                     'type' => 'html',
-                    'class' => 'wrapper-image-preview',
                     'label' => $this->l( "Current Wrapper Image $i" ),
                     'name' => "wrapper_image_preview_$i",
                     'html_content' => '<div class="wrapper-image-preview">'
@@ -197,31 +192,28 @@ class Customgiftwrapping extends Module {
         ] );
     }
 
-    public function hookActionCartSave( $params ) {
-        $this->context->cart->gift = 0;
-        $this->context->cart->gift_message = '';
-    }
-
     public function hookDisplayHeader() {
-        if ( 'cart' === Tools::getValue( 'controller' ) ) {
+        if ( Tools::getValue( 'controller' ) === 'cart' ) {
             $this->context->controller->addCSS( $this->_path . 'views/css/customgiftwrapping.css' );
         }
     }
 
     public function hookDisplayShoppingCart( $params ) {
-
         if ( !Configuration::get( 'GIFT_WRAPPING_ENABLED' ) ) {
             return '';
         }
 
-        // Add gift wrap
+        if ( session_status() === PHP_SESSION_NONE ) {
+            session_start();
+        }
+
+        // Apply gift wrap
         if ( Tools::isSubmit( 'submitGiftWrapping' ) && Tools::getValue( 'gift_wrap_selection' ) ) {
             $wrapKey = Tools::getValue( 'gift_wrap_selection' );
-            // e.g., WRAPPER_IMAGE_1
             $this->context->cart->gift = 1;
             $this->context->cart->gift_message = $wrapKey;
             $this->context->cart->save();
-
+            $_SESSION[ 'selected_gift_wrap' ] = $wrapKey;
             Tools::redirect( $_SERVER[ 'HTTP_REFERER' ] );
         }
 
@@ -230,15 +222,11 @@ class Customgiftwrapping extends Module {
             $this->context->cart->gift = 0;
             $this->context->cart->gift_message = '';
             $this->context->cart->save();
-
-            $this->context->cookie->__unset( 'gift_wrap_applied' );
-            $this->context->cookie->__unset( 'gift_wrap_image' );
-            $this->context->cookie->__unset( 'gift_wrap_price' );
-
+            unset( $_SESSION[ 'selected_gift_wrap' ] );
             Tools::redirect( $_SERVER[ 'HTTP_REFERER' ] );
         }
 
-        // Load base64 images
+        // Load images
         $images = [];
         for ( $i = 1; $i <= 4; $i++ ) {
             $img = Configuration::get( "WRAPPER_IMAGE_$i" );
@@ -247,41 +235,35 @@ class Customgiftwrapping extends Module {
             }
         }
 
-        $selectedKey = $this->context->cart->gift_message;
+        $selectedKey = $this->context->cart->gift_message ?: ( $_SESSION[ 'selected_gift_wrap' ] ?? '' );
         $selectedImage = isset( $images[ $selectedKey ] ) ? $images[ $selectedKey ] : null;
-
-        $selectedImage = $this->context->cart->gift_message;
-        $selectedKey = null;
-
-        foreach ( range( 1, 4 ) as $i ) {
-            $confKey = "WRAPPER_IMAGE_$i";
-            if ( $selectedImage && $selectedImage === Configuration::get( $confKey ) ) {
-                $selectedKey = $confKey;
-                break;
-            }
-        }
+        $giftApplied = ( bool )$this->context->cart->gift;
 
         $this->context->smarty->assign( [
             'gift_wrapping_enabled' => Configuration::get( 'GIFT_WRAPPING_ENABLED' ),
-            'gift_wrapping_price'   => Tools::convertPrice( Configuration::get( 'GIFT_WRAPPING_PRICE' ), $this->context->currency ),
-            'wrapper_images'        => $images,
-            'gift_wrap_applied'     => ( bool ) $this->context->cart->gift,
-            'selected_wrap_image'   => $selectedImage,
-            'selected_wrap_key'     => $selectedKey,
+            'gift_wrapping_price' => Tools::convertPrice( Configuration::get( 'GIFT_WRAPPING_PRICE' ), $this->context->currency ),
+            'wrapper_images' => $images,
+            'gift_wrap_applied' => $giftApplied,
+            'gift_wrap_disabled' => $giftApplied,
+            'gift_wrap_checked' => $giftApplied,
+            'selected_wrap_image' => $selectedImage,
+            'selected_wrap_key' => $selectedKey,
         ] );
 
         return $this->display( __FILE__, 'views/templates/hook/displayShoppingCart.tpl' );
     }
 
-    public function hookDisplayShoppingCartFooter( $params ) {
-        if ( !$this->context->cart->gift || !$this->context->cart->gift_message ) {
-            return '';
+    public function hookActionCartGetOrderTotalBefore( $params ) {
+        if ( !Configuration::get( 'GIFT_WRAPPING_ENABLED' ) ) {
+            return;
         }
 
-        $this->context->smarty->assign( [
-            'gift_wrapping_extra_fee' => Tools::convertPrice( Configuration::get( 'GIFT_WRAPPING_PRICE' ), $this->context->currency ),
-        ] );
-
-        return $this->display( __FILE__, 'views/templates/hook/displayShoppingCartFooter.tpl' );
+        $cart = $params[ 'cart' ];
+        if ( $cart->gift ) {
+            $giftPrice = ( float )Configuration::get( 'GIFT_WRAPPING_PRICE' );
+            if ( isset( $params[ 'amount' ] ) ) {
+                $params[ 'amount' ] += $giftPrice;
+            }
+        }
     }
 }

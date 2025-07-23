@@ -1,7 +1,7 @@
 /* General form styles */
 .customgiftwrapping-form {
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 20px;
     background-color: #f9f9f9;
     border-radius: 6px;
     max-width: 100%;
@@ -50,27 +50,14 @@
     border-color: #007bff;
 }
 
-/* Hide the radio input */
-.giftwrap-radio {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Clickable label for image */
-.gift-wrap-label {
-    cursor: pointer;
-    display: inline-block;
-    transition: border 0.3s ease;
-}
-
-/* Selected state styling (corrected selector) */
-.giftwrap-radio:checked+.gift-wrap-label img {
+/* Selected state */
+.gift-wrap-radio:checked+label img,
+.gift-wrap-option input[type="radio"]:checked+label img {
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Button wrapper */
+/* Button styles */
 .customgiftwrapping-buttons {
     margin-top: 10px;
 }
@@ -79,7 +66,7 @@
     min-width: 100px;
 }
 
-/* Selected gift summary box */
+/* Selected gift summary */
 .custom-gift-wrap-summary {
     background-color: #f8f9fa;
     padding: 15px;
@@ -90,7 +77,7 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .customgiftwrapping-form {
-        padding: 15px;
+        padding: 15px !important;
     }
 
     .gift-wrap-option {
